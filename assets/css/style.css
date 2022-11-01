@@ -1,0 +1,114 @@
+* {
+    padding: none;
+    margin: none;
+}
+
+/*this color will be used in case the chosen background images don't load*/ 
+:root {
+    --backColor1: rgb(17, 143, 143);
+}
+
+/*character lineup at the bottom with teal background */
+.background{
+    background: url("../images/MHAbackground1.jpg");
+}
+
+.body {
+    background-color: rgb(17, 143, 143);
+    color: white;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    color: white;
+    font-size: 40px;
+    background-color: red;
+    padding: 10px 126px 10px 100px;
+    border: 8px solid black;
+    border-left: none;
+    margin-left: -10px;
+    -webkit-text-stroke: 2px black;
+    border-radius: 6px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.button {
+    display: inline-flex;
+    margin-right: 50px;
+    padding: 0px;
+    color: yellow;
+    -webkit-text-stroke: 1.5px black;
+    background-color: var(--backColor1);
+    border: 5px solid black;
+    font-size: 40px;
+    border-radius: 4px;
+}
+
+/*green haired superhero fixing his glove with green background*/
+#start {
+    background: url("../images/startHereBtn.jpg");
+    background-size: cover;
+    padding: 0px 0px 0px 94px;
+    }
+
+/*superhero heads with blue background*/
+#scoreboard {
+    background: url("../images/scoreBtn.png");
+    background-size: cover;
+    padding: 0px 23px;
+}
+
+.game {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ruleset {
+    border: 3px solid black;
+    border-left: none;
+    display: inline-block;    
+    margin-left: -10px;
+    padding-left: 18px;
+    padding-right: 7px;
+    margin-bottom: 100px;
+}
+
+.ruleset h2 {
+    font-size: 30px;
+    -webkit-text-stroke: 1px black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.ruleset ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.ruleset li {
+    padding-left: 1rem;
+    text-indent: -0.75rem;
+}
+
+.ruleset li::before {
+    content: '👊';
+}
+
+.ruleset p {
+    font-size: 30px;
+    -webkit-text-stroke: 2px black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.quizBox {
+    border: 1px solid black;
+}
