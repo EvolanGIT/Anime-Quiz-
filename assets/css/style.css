@@ -65,6 +65,10 @@
     padding: 0px 23px;
 }
 
+#timer {
+    background: url(../images/bakutimer.png);
+}
+
 .game {
     display: flex;
     justify-content: space-between;
