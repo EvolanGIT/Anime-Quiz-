@@ -6,6 +6,8 @@
 /*this color will be used in case the chosen background images don't load*/ 
 :root {
     --backColor1: rgb(17, 143, 143);
+    --heroFont: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --heroLiner: 2px black;
 }
 
 /*character lineup at the bottom with teal background */
@@ -34,10 +36,12 @@
     border: 8px solid black;
     border-left: none;
     margin-left: -10px;
-    -webkit-text-stroke: 2px black;
+    -webkit-text-stroke: var(--heroLiner);
     border-radius: 6px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: var(--heroFont);
 }
+
+
 
 .button {
     display: inline-flex;
@@ -76,24 +80,21 @@
 
 .game {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
+/*rules box*/
 .ruleset {
-    border: 3px solid black;
-    border-left: none;
+    border-right: 3px solid black;
     display: inline-block;    
     margin-left: -10px;
     padding-left: 18px;
     padding-right: 7px;
-    margin-bottom: 100px;
 }
 
 .ruleset h2 {
-    font-size: 30px;
-    -webkit-text-stroke: 1px black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 35px;
+    -webkit-text-stroke: var(--heroLiner);
+    font-family: var(--heroFont);
 }
 
 .ruleset ul{
@@ -114,10 +115,60 @@
 
 .ruleset p {
     font-size: 30px;
-    -webkit-text-stroke: 2px black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    -webkit-text-stroke: var(--heroLiner);
+    font-family: var(--heroFont)
 }
 
+/*Questions area*/
 .quizBox {
+    flex-grow: 8;
+    text-align: center;
+}
+
+.quizBox h3 {
+    font-size: 50px;
+    font-family: var(--heroFont);
+    -webkit-text-stroke: var(--heroLiner);
+    margin: 10px;
+}
+
+.quizBox a{
+    margin: 20px 100px;
+    color: white;
+    font-family: var(--heroFont);
+    -webkit-text-stroke: var(--heroLiner);
+    font-size: 25px;
+    background-color: lightslategray;
+    padding: 10px;
+}
+
+.quizBox li {
+    list-style: none;
+    font-size: 30px;
     border: 1px solid black;
+    font-family: var(--heroFont);
+    -webkit-text-stroke: var(--heroLiner);
+}
+
+/*legal disclaimer*/
+.legal {
+    display: flex;
+    justify-content: flex-end;
+    font-style: italic;
+    margin-right: 90px;
+
+}
+
+/*footer with link gif to my portfolio*/
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: var(--heroFont);
+    -webkit-text-stroke: var(--heroLiner);
+    font-size: 25px;
+}
+
+.footer p {
+    margin: 10px
 }

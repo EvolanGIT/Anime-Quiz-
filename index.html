@@ -14,7 +14,7 @@
             <ul>
             <button class="button" id="start"> START!</button>
             <button class="button" id="scoreboard">Scoreboard</button>
-            <button class="button" id="timer">Timer: <span class="time">60s</span></button>
+            <button class="button" id="timer">Timer: <span class="time">60</span><span>s</span></button>
             </ul>
         </header>
     <main>
@@ -33,10 +33,30 @@
             <p> GOOD LUCK AND... PLUS ULTRA!!!</p>
         </nav>
         <article class="quizBox">
-        <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque explicabo omnis ipsa facilis. Asperiores, similique mollitia! Exercitationem ullam veritatis cupiditate repellendus hic perspiciatis magni esse laboriosam ex ipsum, inventore eos.</a>
+        <h3 id="question">Get Ready!</h3>
+        <a>CORRECT!!!</a><a>INCORRECT!!!</a>
+        <ul class="options">
+            <li id="A" onclick="check('A')">You think you can beat me?</li>
+            <li id="B" onclick="check('B')">Bring it on!</li>
+            <li id="C" onclick="check('C')">but more than anything</li>
+            <li id="D" onclick="check('D')">plus ultra!!!!</li>    
+        </ul>
         </article>
         </section>
+    <section class="legal">        
+        <p> -- Copyright Disclaimer under Section 107 of the copyright 
+            act 1976, allowance is made for fair use for purposes such as criticism, comment, 
+            news reporting, scholarship, <br> and research. Fair use is a use permitted by copyright 
+            statute that might otherwise be infringing. Non-profit, educational or personal use 
+            tips the balance in favour of fair use. --
+        </p>
+    </section>
     </main>
+    <footer class="footer">
+        <p>Had fun? make sure to visit my Portfolio</p>
+        <img src="./assets/images/linkToMyPortfolio.gif" width="150vh">
+
+    </footer>
     <script src="assets\js\script.js"></script>
 </body>
 </html>
