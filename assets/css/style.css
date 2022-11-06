@@ -133,21 +133,29 @@
 }
 
 .quizBox a{
-    margin: 20px 100px;
+    margin: 100px;
+    margin-bottom: 40px;
     color: white;
     font-family: var(--heroFont);
     -webkit-text-stroke: var(--heroLiner);
     font-size: 25px;
     background-color: lightslategray;
-    padding: 10px;
+    padding: 5px;
 }
 
-.quizBox li {
-    list-style: none;
+.quizBox div {
+    display: flex;
+    flex-direction: column;
+}
+
+.quizBox button {
     font-size: 30px;
     border: 1px solid black;
     font-family: var(--heroFont);
-    -webkit-text-stroke: var(--heroLiner);
+    display: block;
+    background: transparent;
+    border: none;
+    margin: 10px;
 }
 
 /*legal disclaimer*/
@@ -170,5 +178,6 @@
 }
 
 .footer p {
-    margin: 10px
+    margin: 10px;
 }
+
