@@ -2,7 +2,7 @@
 var timeEl = document.querySelector(".time");
 var startGame = document.querySelector("#start");
 // //this is the timer and its variable for time, 
-var secondsLeft = 60;
+var secondsLeft;
 var timerInterval;
 var penalty;
 
@@ -10,7 +10,7 @@ function clockDown() {
     timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
-        if(secondsLeft <= 0) {//fix 
+        if(secondsLeft <= 0) { 
         clearInterval(timerInterval);
         window.alert("Sorry but you lost!!!");
     }
@@ -70,7 +70,7 @@ let quest = [
 
 //this will prompt the questions when the start button is clicked.
 var quizStart = quest.length-1;
-let currentQuestion = 0;
+let currentQuestion;
 
 function askThis (){
     let trivia = quest[currentQuestion];
@@ -99,33 +99,47 @@ function choosing (checkAnswer) {
         currentQuestion++
         if (quizStart >= currentQuestion) {
         askThis();
-    }}
-}
+    }} 
+    }
+
 
 
 //displays if the answer was right with a green queue.
 function greenlight() {
-    document.getElementById("right").style.backgroundColor = "#0f0";  
+    document.getElementById("right").style.backgroundColor = "#0f0";
+    setTimeout (function(){
+        document.getElementById("right").style.backgroundColor = "lightslategray";    
+    }, 300 ) 
     } 
 
 //displays if the answer was wrong with a red queue.
 function redlight() {
     document.getElementById("wrong").style.backgroundColor = "#f00";
-}
+    setTimeout (function(){
+        document.getElementById("wrong").style.backgroundColor = "lightslategray";    
+    }, 300 ) 
+    } 
 
 
 
+// this function is fired when all the answers are answered and there is time left in the clock.
 function youWin(){
+    //stops the timer when the user finishes answering all the questions before time runs out.
     clearInterval(timerInterval);
+    //confirms the seconds left in the console
     console.log(secondsLeft);
-    //prompt name + 
-    //input + secondsleft
+    //congrats to the user and asks for his input to be added to the scoreboard
+    window.prompt("congratulations! You finished before the timer ran out! Add your name to the scoreboard");
+    //restarts the whole page for a second try while keeping the scoreboard
 }
 
 
 //this function will start the game
 startGame.addEventListener("click", function() {
-    //this starts the timer countdown while reseting it    
+    //this resets the timer to 60s if the user clicks on start again.    
+    secondsLeft = 60;
+    //this resets the questions to the first one when the user clicks on start again.
+    currentQuestion = 0;
     clockDown();
     askThis();
 });
