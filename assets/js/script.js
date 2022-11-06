@@ -82,32 +82,32 @@ function askThis (){
 }
 
 //this function checks for right or wrong answer and changes to the next question.
-function choosing (checkAnswer){
-    penalty = secondsLeft - 10;
+function choosing (checkAnswer) {
+    penalty = secondsLeft - 15;
     console.log(checkAnswer);
     if (checkAnswer == quest[currentQuestion].correct){
         console.log("correct");
         greenlight();
         currentQuestion++
-        if (quizStart > currentQuestion) {
+        if (quizStart >= currentQuestion) {
         askThis();
-        } 
+        }} 
     else if (checkAnswer != quest[currentQuestion].correct){
         console.log("incorrect");
         secondsLeft = penalty;
         redlight();
         currentQuestion++
-        if (quizStart > currentQuestion) 
+        if (quizStart >= currentQuestion) {
         askThis();
-    } 
+    }}
 }
 
 
 //displays if the answer was right with a green queue.
 function greenlight() {
-    document.getElementById("right").style.backgroundColor = "#0f0";
-    
-}
+    document.getElementById("right").style.backgroundColor = "#0f0";  
+    } 
+
 //displays if the answer was wrong with a red queue.
 function redlight() {
     document.getElementById("wrong").style.backgroundColor = "#f00";
@@ -129,10 +129,4 @@ startGame.addEventListener("click", function() {
     clockDown();
     askThis();
 });
-
-
-
-
-
-
 
