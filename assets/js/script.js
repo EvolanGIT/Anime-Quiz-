@@ -90,16 +90,17 @@ function choosing (checkAnswer){
         greenlight();
         currentQuestion++
         if (quizStart > currentQuestion) {
-        askThis()
-        }
-    } else if (checkAnswer != quest[currentQuestion].correct) 
+        askThis();
+        } 
+    else if (checkAnswer != quest[currentQuestion].correct){
         console.log("incorrect");
         secondsLeft = penalty;
         redlight();
         currentQuestion++
-        if (quizStart > currentQuestion) {
+        if (quizStart > currentQuestion) 
         askThis();
     } 
+}
 
 
 //displays if the answer was right with a green queue.
@@ -114,12 +115,12 @@ function redlight() {
 
 
 
-// function youWin(){
-//     clearInterval(timerInterval);
-//     console.log(secondsLeft);
-//     //prompt name + 
-//     //input + secondsleft
-// }
+function youWin(){
+    clearInterval(timerInterval);
+    console.log(secondsLeft);
+    //prompt name + 
+    //input + secondsleft
+}
 
 
 //this function will start the game
