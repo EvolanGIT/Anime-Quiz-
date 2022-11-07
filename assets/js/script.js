@@ -71,6 +71,7 @@ let quest = [
 //this will prompt the questions when the start button is clicked.
 var quizStart = quest.length-1;
 let currentQuestion;
+var wholequiz = quest.length;
 
 function askThis (){
     let trivia = quest[currentQuestion];
@@ -83,7 +84,7 @@ function askThis (){
 
 //this function checks for right or wrong answer and changes to the next question.
 function choosing (checkAnswer) {
-    penalty = secondsLeft - 15;
+    penalty = secondsLeft - 12;
     console.log(checkAnswer);
     if (checkAnswer == quest[currentQuestion].correct){
         console.log("correct");
@@ -99,10 +100,10 @@ function choosing (checkAnswer) {
         currentQuestion++
         if (quizStart >= currentQuestion) {
         askThis();
-    }} else if ( quizStart == currentQuestion) {
+    }} if (currentQuestion == quest.length) {
         return youWIn();
         
-    }}
+}}
 
 
 
@@ -125,10 +126,10 @@ function redlight() {
 
 
 // this function is fired when all the answers are finished and there is time left in the clock.
-var youWIn = function(event){
-    event.preventDefault();
-    var getInput = window.promt("congratulations! You finished before the timer ran out! Add your name to the scoreboard");
-    getInput = initials;
+var youWIn = function(){
+    console.log("im firing");
+    var getInput = window.prompt("congratulations! You finished before the timer ran out! Add your name to the scoreboard");
+    initials = getInput;
     console.log(initials);
     clearInterval(timerInterval);
     console.log(secondsLeft);
@@ -138,17 +139,18 @@ var youWIn = function(event){
     };
     console.log(playerInfo),
     localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
-    // displayScore();
+    displayScore();
 }
 
-// //this function retrieves the information for display
-// function displayScore () {
-//     playerScore = JSON.parse(localStorage.getItem("playerInfo"));
-//     if (playerScore !== null) {
-//         document.querySelector("scoreset").textContent = playerScore.initials + playerScore.secondsLeft
-//     }
+
+//this function retrieves the information for display
+function displayScore () {
+    playerScore = JSON.parse(localStorage.getItem("playerInfo"));
+    if (playerScore !== null) {
+        document.querySelector("scoreset").textContent = playerScore.initials + playerScore.secondsLeft
+    }
     
-// }
+}
 
 // var playerScore;
 // var playerRow = document.getElementById("scoreset"); 
