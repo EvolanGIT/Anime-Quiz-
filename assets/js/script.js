@@ -131,13 +131,12 @@ var youWIn = function(){
     var getInput = window.prompt("Finished! Please Add your name to the scoreboard");
     initials = getInput;
     console.log(initials);
-    clearInterval(timerInterval);
     console.log(secondsLeft);
+    clearInterval(timerInterval);
     var playerInfo = {
         name: initials.trim(),
         score: secondsLeft
     };
-    console.log(playerInfo),
     localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
     displayScore();
 }
@@ -151,7 +150,10 @@ function displayScore () {
     str += "<li>${playerScore[i].initials}  ${playerScore[i].secondsLeft}</li>"
     }
     document.querySelector("#scoreset").innerHTML = str
-    }
+    console.log(playerScore);    
+}
+
+
 
 //this function will start the game
 startGame.addEventListener("click", function() {
