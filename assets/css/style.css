@@ -64,11 +64,12 @@
     }
 
 /*superhero heads with blue background*/
-#scoreboard {
+#rules {
     background: url("../images/scoreBtn.png");
     background-size: cover;
-    padding: 0px 23px;
+    padding: 0px 3px;
     cursor: pointer;
+    
 }
 
 /*superhero with explosions in hand*/

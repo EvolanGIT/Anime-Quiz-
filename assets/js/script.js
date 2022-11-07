@@ -122,17 +122,39 @@ function redlight() {
 
 
 
-// this function is fired when all the answers are answered and there is time left in the clock.
-function youWin(){
-    //stops the timer when the user finishes answering all the questions before time runs out.
+// this function is fired when all the answers are finished and there is time left in the clock.
+var youWIn = function(event){
+    event.preventDefault();
+    var getInput = window.prompt("congratulations! You finished before the timer ran out! Add your name to the scoreboard");
+    getInput = initials;
+    console.log(initials);
     clearInterval(timerInterval);
-    //confirms the seconds left in the console
     console.log(secondsLeft);
-    //congrats to the user and asks for his input to be added to the scoreboard
-    window.prompt("congratulations! You finished before the timer ran out! Add your name to the scoreboard");
-    //restarts the whole page for a second try while keeping the scoreboard
+    var playerInfo = {
+        name: initials.trim(),
+        score: secondsLeft
+    };
+    console.log(playerInfo),
+    localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
+    displayScore();
 }
 
+//this function retrieves the information for display
+function displayScore () {
+    playerScore = JSON.parse(localStorage.getItem("playerInfo"));
+    if (playerScore !== null) {
+        document.querySelector("scoreset").textContent = playerScore.initials + playerScore.secondsLeft
+    }
+    
+}
+
+var playerScore;
+var playerRow = document.getElementById("scoreset"); 
+
+//this part creates the lists for displayScore
+for (var i = 0; i < playerScore.length; i++)
+    playerRow.appendChild(playerScore);
+    
 
 //this function will start the game
 startGame.addEventListener("click", function() {
