@@ -91,7 +91,7 @@ function choosing (checkAnswer) {
         currentQuestion++
         if (quizStart >= currentQuestion) {
         askThis();
-        }} 
+    }}
     else if (checkAnswer != quest[currentQuestion].correct){
         console.log("incorrect");
         secondsLeft = penalty;
@@ -99,8 +99,10 @@ function choosing (checkAnswer) {
         currentQuestion++
         if (quizStart >= currentQuestion) {
         askThis();
-    }} 
-    }
+    }} else if ( quizStart == currentQuestion) {
+        return youWIn();
+        
+    }}
 
 
 
@@ -125,7 +127,7 @@ function redlight() {
 // this function is fired when all the answers are finished and there is time left in the clock.
 var youWIn = function(event){
     event.preventDefault();
-    var getInput = window.prompt("congratulations! You finished before the timer ran out! Add your name to the scoreboard");
+    var getInput = window.promt("congratulations! You finished before the timer ran out! Add your name to the scoreboard");
     getInput = initials;
     console.log(initials);
     clearInterval(timerInterval);
@@ -136,24 +138,24 @@ var youWIn = function(event){
     };
     console.log(playerInfo),
     localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
-    displayScore();
+    // displayScore();
 }
 
-//this function retrieves the information for display
-function displayScore () {
-    playerScore = JSON.parse(localStorage.getItem("playerInfo"));
-    if (playerScore !== null) {
-        document.querySelector("scoreset").textContent = playerScore.initials + playerScore.secondsLeft
-    }
+// //this function retrieves the information for display
+// function displayScore () {
+//     playerScore = JSON.parse(localStorage.getItem("playerInfo"));
+//     if (playerScore !== null) {
+//         document.querySelector("scoreset").textContent = playerScore.initials + playerScore.secondsLeft
+//     }
     
-}
+// }
 
-var playerScore;
-var playerRow = document.getElementById("scoreset"); 
+// var playerScore;
+// var playerRow = document.getElementById("scoreset"); 
 
-//this part creates the lists for displayScore
-for (var i = 0; i < playerScore.length; i++)
-    playerRow.appendChild(playerScore);
+// //this part creates the lists for displayScore
+// for (var i = 0; i < playerScore.length; i++)
+//     playerRow.appendChild(playerScore);
     
 
 //this function will start the game
