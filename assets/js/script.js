@@ -1,6 +1,7 @@
 //this is my timer function variables.
 var timeEl = document.querySelector(".time");
 var startGame = document.querySelector("#start");
+var howToPlay = document.querySelector("#rules");
 // //this is the timer and its variable for time, 
 var secondsLeft;
 var timerInterval;
@@ -123,7 +124,7 @@ function redlight() {
     }, 300 ) 
     } 
 
-
+ 
 
 // this function is fired when all the answers are finished and there is time left in the clock.
 var youWIn = function(){
@@ -137,7 +138,9 @@ var youWIn = function(){
         name: initials.trim(),
         score: secondsLeft
     };
+    let playerInfo = JSON.parse(localStorage.getItem("playerInfo")) ||[];  
     localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
+    playerInfo.push(playerInfo);
     displayScore();
 }
 
@@ -147,7 +150,7 @@ function displayScore () {
     let playerScore = JSON.parse(localStorage.getItem("playerInfo")) ||[];  
     let str = ""
     for(let i =0 ; i<playerScore.length;i++){
-    str += "<li>${playerScore[i].initials}  ${playerScore[i].secondsLeft}</li>"
+    str += `<li>${playerScore[i].name}  ${playerScore[i].score}</li>`
     }
     document.querySelector("#scoreset").innerHTML = str
     console.log(playerScore);    
