@@ -84,7 +84,7 @@ function askThis (){
 
 //this function checks for right or wrong answer and changes to the next question.
 function choosing (checkAnswer) {
-    penalty = secondsLeft - 12;
+    penalty = secondsLeft - 15;
     console.log(checkAnswer);
     if (checkAnswer == quest[currentQuestion].correct){
         console.log("correct");
@@ -127,8 +127,8 @@ function redlight() {
 
 // this function is fired when all the answers are finished and there is time left in the clock.
 var youWIn = function(){
-    console.log("im firing");
-    var getInput = window.prompt("congratulations! You finished before the timer ran out! Add your name to the scoreboard");
+    console.log("user wins");
+    var getInput = window.prompt("Finished! Please Add your name to the scoreboard");
     initials = getInput;
     console.log(initials);
     clearInterval(timerInterval);
@@ -145,20 +145,13 @@ var youWIn = function(){
 
 //this function retrieves the information for display
 function displayScore () {
-    playerScore = JSON.parse(localStorage.getItem("playerInfo"));
-    if (playerScore !== null) {
-        document.querySelector("scoreset").textContent = playerScore.initials + playerScore.secondsLeft
+    let playerScore = JSON.parse(localStorage.getItem("playerInfo")) ||[];  
+    let str = ""
+    for(let i =0 ; i<playerScore.length;i++){
+    str += "<li>${playerScore[i].initials}  ${playerScore[i].secondsLeft}</li>"
     }
-    
-}
-
-// var playerScore;
-// var playerRow = document.getElementById("scoreset"); 
-
-// //this part creates the lists for displayScore
-// for (var i = 0; i < playerScore.length; i++)
-//     playerRow.appendChild(playerScore);
-    
+    document.querySelector("#scoreset").innerHTML = str
+    }
 
 //this function will start the game
 startGame.addEventListener("click", function() {
