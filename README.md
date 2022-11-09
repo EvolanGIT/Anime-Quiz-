@@ -29,7 +29,7 @@
 ## Access
 
 - The link to my Github repository: https://github.com/EvolanGIT/Anime-Quiz-
-- The launched website: Lorem Ipsum
+- The launched website: https://evolangit.github.io/Anime-Quiz-/
 
 
 ## Visuals
