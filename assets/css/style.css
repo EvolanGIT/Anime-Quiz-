@@ -83,22 +83,23 @@
     display: flex;
 }
 
-/*rules box*/
-.ruleset {
+/*scoreboard box*/
+.scoreboard {
     border-right: 3px solid black;
     display: inline-block;    
     margin-left: -10px;
     padding-left: 18px;
     padding-right: 7px;
+    text-align: center;
 }
 
-.ruleset h2 {
+.scoreboard h2 {
     font-size: 35px;
     -webkit-text-stroke: var(--heroLiner);
     font-family: var(--heroFont);
 }
 
-.ruleset ul{
+.scoreboard ul{
     list-style: none;
     padding: 0;
     margin: 0;
@@ -107,16 +108,17 @@
     font-size: 25px;
 }
 
-.ruleset li {
+.scoreboard li {
     padding-left: 1rem;
     text-indent: -0.75rem;
 }
 
-.ruleset li::before {
+.scoreboard li::before {
     content: '👊';
+    margin-right: 20px;
 }
 
-.ruleset p {
+.scoreboard p {
     font-size: 30px;
     -webkit-text-stroke: var(--heroLiner);
     font-family: var(--heroFont)

@@ -12,9 +12,9 @@ function clockDown() {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
         if(secondsLeft <= 0) { 
-        clearInterval(timerInterval);
-        window.alert("Sorry but you lost!!!");
-    }
+            clearInterval(timerInterval);
+            window.alert("Sorry but you lost!!!");
+        }
     }, 1000);
     
 }
@@ -28,28 +28,28 @@ var choice4 = document.getElementById("D");
 
 //this are the questions
 let quest = [
-{
-    question: "What is the Name of the Anime's main Character?",
-    choice1: "Toshinori Yagi",
-    choice2: "Izuku Midoriya",
-    choice3: "Enji Todoroki",
-    choice4: "Tenko Shimura",
-    correct: "B"
-},
-{
-    question: "Who inherited All Might's superpower?",
-    choice1: "Deku",
-    choice2: "Bakugo",
-    choice3: "Todoroki",
-    choice4: "Shigaraki",
-    correct: "A"
-},
-{
-    question: "Who becomes the number-one hero after All might retired?",
-    choice1: "Hawks",
-    choice2: "Dynamight",
-    choice3: "Deku",
-    choice4: "Endeavor",
+    {
+        question: "What is the Name of the Anime's main Character?",
+        choice1: "Toshinori Yagi",
+        choice2: "Izuku Midoriya",
+        choice3: "Enji Todoroki",
+        choice4: "Tenko Shimura",
+        correct: "B"
+    },
+    {
+        question: "Who inherited All Might's superpower?",
+        choice1: "Deku",
+        choice2: "Bakugo",
+        choice3: "Todoroki",
+        choice4: "Shigaraki",
+        correct: "A"
+    },
+    {
+        question: "Who becomes the number-one hero after All might retired?",
+        choice1: "Hawks",
+        choice2: "Dynamight",
+        choice3: "Deku",
+        choice4: "Endeavor",
     correct: "D"
 },
 {
@@ -92,70 +92,73 @@ function choosing (checkAnswer) {
         greenlight();
         currentQuestion++
         if (quizStart >= currentQuestion) {
-        askThis();
-    }}
-    else if (checkAnswer != quest[currentQuestion].correct){
-        console.log("incorrect");
-        secondsLeft = penalty;
-        redlight();
-        currentQuestion++
-        if (quizStart >= currentQuestion) {
-        askThis();
-    }} if (currentQuestion == quest.length) {
-        return youWIn();
-        
-}}
-
-
-
-//displays if the answer was right with a green queue.
-function greenlight() {
-    document.getElementById("right").style.backgroundColor = "#0f0";
-    setTimeout (function(){
-        document.getElementById("right").style.backgroundColor = "lightslategray";    
-    }, 300 ) 
-    } 
-
-//displays if the answer was wrong with a red queue.
-function redlight() {
-    document.getElementById("wrong").style.backgroundColor = "#f00";
-    setTimeout (function(){
-        document.getElementById("wrong").style.backgroundColor = "lightslategray";    
-    }, 300 ) 
-    } 
-
- 
-
-// this function is fired when all the answers are finished and there is time left in the clock.
-var youWIn = function(){
-    console.log("user wins");
-    var getInput = window.prompt("Finished! Please Add your name to the scoreboard");
-    initials = getInput;
-    console.log(initials);
-    console.log(secondsLeft);
-    clearInterval(timerInterval);
-    var playerInfo = {
+            askThis();
+        }}
+        else if (checkAnswer != quest[currentQuestion].correct){
+            console.log("incorrect");
+            secondsLeft = penalty;
+            redlight();
+            currentQuestion++
+            if (quizStart >= currentQuestion) {
+                askThis();
+            }} if (currentQuestion == quest.length) {
+                return youWIn();
+                
+            }}
+            
+            
+            
+            //displays if the answer was right with a green queue.
+            function greenlight() {
+                document.getElementById("right").style.backgroundColor = "#0f0";
+                setTimeout (function(){
+                    document.getElementById("right").style.backgroundColor = "lightslategray";    
+                }, 300 ) 
+            } 
+            
+            //displays if the answer was wrong with a red queue.
+            function redlight() {
+                document.getElementById("wrong").style.backgroundColor = "#f00";
+                setTimeout (function(){
+                    document.getElementById("wrong").style.backgroundColor = "lightslategray";    
+                }, 300 ) 
+            } 
+            
+            
+let playerScore = JSON.parse(localStorage.getItem("playerInfo")) ||[];  
+            
+            // this function is fired when all the answers are finished and there is time left in the clock.
+            var youWIn = function(){
+                console.log("user wins");
+                var getInput = window.prompt("Finished! Please Add your name to the scoreboard");
+                initials = getInput;
+                console.log(initials);
+                console.log(secondsLeft);
+                clearInterval(timerInterval);
+                var playerData = {
         name: initials.trim(),
         score: secondsLeft
     };
-    let playerInfo = JSON.parse(localStorage.getItem("playerInfo")) ||[];  
-    localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
-    playerInfo.push(playerInfo);
+    playerScore.push(playerData);
+    localStorage.setItem("playerInfo", JSON.stringify(playerScore));
     displayScore();
 }
-
+console.log("score" + typeof playerScore);
 
 //this function retrieves the information for display
 function displayScore () {
-    let playerScore = JSON.parse(localStorage.getItem("playerInfo")) ||[];  
     let str = ""
     for(let i =0 ; i<playerScore.length;i++){
-    str += `<li>${playerScore[i].name}  ${playerScore[i].score}</li>`
+        str += `<li>${playerScore[i].name}  ${playerScore[i].score}</li>`
     }
     document.querySelector("#scoreset").innerHTML = str
     console.log(playerScore);    
 }
 
+howToPlay.addEventListener("click", function() {
+    window.alert("How to Play:\n\n-Press the Start Button\n-You will be given 60 seconds to answer as many questions as you can.\n-Every wrong answer will remove 15 seconds off the clock.\n-If you complete the quiz before time runs out,\n your score will be determined by the remaining time on the clock.\n-Press the Start button to play again.\nHAVE FUN AND GOOD LUCK!!!");
+
+});
 
 
 //this function will start the game
